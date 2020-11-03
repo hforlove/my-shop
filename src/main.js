@@ -3,14 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import 'normalize.css/normalize.css'
+
 /* flexible */
 import 'amfe-flexible/index.js'
 
 /* vant start */
 import Vant from 'vant'
 import 'vant/lib/index.css'
-Vue.use(Vant)
 /* vant end */
+
+Vue.use(Vant)
 
 Vue.config.productionTip = false
 

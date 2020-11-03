@@ -1,6 +1,6 @@
 module.exports = {
   plugins: {
-    'autoprefixer': {
+    autoprefixer: {
       overrideBrowserslist: [
         'Android 4.1',
         'iOS 7.1',
