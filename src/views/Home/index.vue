@@ -1,23 +1,27 @@
 <template>
   <div class="home">
-    <van-nav-bar>
+    <van-nav-bar fixed>
       <template #left>
-        <van-icon name="wap-nav" size="18" color="#fff" />
+        <van-icon @click="redirect('/category')" name="wap-nav" size="18" color="#fff" />
       </template>
       <template #title>
         <van-search v-model="keyword" shape="round" placeholder="搜索商品" />
       </template>
       <template #right>
-        <van-icon name="manager" size="18" color="#fff" />
+        <van-icon @click="redirect('/user')" name="manager" size="18" color="#fff" />
       </template>
     </van-nav-bar>
+    <tab-bar :index="0"></tab-bar>
+
+    <div class="header_space"></div>
+
     <swipe :list="homeData.carousels" />
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="wap-home-o">首页</van-tabbar-item>
-      <van-tabbar-item icon="bag-o">分类</van-tabbar-item>
-      <van-tabbar-item icon="shopping-cart-o">购物车</van-tabbar-item>
-      <van-tabbar-item icon="contact">我的</van-tabbar-item>
-    </van-tabbar>
+    <mid-nav></mid-nav>
+    <goods-block :list="homeData.newGoodses" title="新品"></goods-block>
+    <goods-block :list="homeData.hotGoodses" title="热门"></goods-block>
+    <goods-block :list="homeData.recommendGoodses" title="推荐"></goods-block>
+
+    <div class="footer_space"></div>
   </div>
 </template>
 
@@ -25,11 +29,14 @@
 
 import { getHomeData } from 'api/index'
 
+import TabBar from 'comp/TabBar'
+import midNav from './midNav'
+import goodsBlock from './goodsBlock'
 import swipe from 'comp/Swipe'
 
 export default {
   name: 'Home',
-  components: { swipe },
+  components: { swipe, TabBar, midNav, goodsBlock },
   data () {
     return {
       active: 0,
@@ -52,6 +59,9 @@ export default {
           this.homeData = res.data
         }
       })
+    },
+    redirect (path) {
+      this.$router.push(path)
     }
   }
 }

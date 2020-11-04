@@ -8,10 +8,11 @@ import 'normalize.css/normalize.css'
 /* flexible */
 import 'amfe-flexible/index.js'
 
+import './assets/css/base.less'
+
 /* vant start */
 import Vant from 'vant'
 import 'vant/lib/index.css'
-/* vant end */
 
 Vue.use(Vant)
 

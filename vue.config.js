@@ -7,7 +7,8 @@ module.exports = {
         view: '@/views',
         api: '@/api',
         utils: '@/utils',
-        comp: '@/components'
+        comp: '@/components',
+        asset: '@/assets'
       }
     }
   },

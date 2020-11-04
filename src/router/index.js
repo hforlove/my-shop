@@ -1,7 +1,12 @@
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import { getToken } from 'utils/index'
+
 Vue.use(VueRouter)
+
+const whiteRouters = ['login']
 
 const routes = [
   {
@@ -9,21 +14,29 @@ const routes = [
     redirect: '/home'
   },
   {
-    path: '/home',
-    name: 'Home',
-    component: () => import('view/Home')
-  },
-  {
     path: '/login',
+    name: 'login',
     component: () => import('view/Login.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/home',
+    name: 'home',
+    component: () => import('view/home')
+  },
+  {
+    path: '/category',
+    name: 'category',
+    component: () => import('view/category')
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('view/cart')
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: () => import('view/user')
   }
 ]
 
@@ -31,6 +44,19 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const token = getToken()
+  if (token) {
+    next()
+  } else {
+    if (whiteRouters.includes(to.name)) {
+      next()
+    } else {
+      next('/login')
+    }
+  }
 })
 
 export default router
