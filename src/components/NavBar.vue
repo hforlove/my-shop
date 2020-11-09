@@ -1,7 +1,10 @@
 <template>
-  <van-nav-bar left-text="返回" left-arrow>
+  <van-nav-bar left-arrow fixed>
     <template #title>
-      <slot></slot>
+      <slot name="title"></slot>
+    </template>
+    <template #right>
+      <slot name="right"></slot>
     </template>
   </van-nav-bar>
 </template>
@@ -17,5 +20,7 @@ export default {
 </script>
 
 <style>
-
+.van-nav-bar{
+  overflow: hidden;
+}
 </style>
