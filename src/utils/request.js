@@ -1,4 +1,7 @@
 import axios from 'axios'
+import { Notify } from 'vant'
+import router from '../router'
+import { getToken } from './index'
 
 const request = axios.create({
   baseURL: process.env.VUE_APP_API + '/api/v1',
@@ -6,7 +9,7 @@ const request = axios.create({
 })
 
 request.interceptors.request.use(config => {
-  config.headers.token = 123321
+  config.headers.token = getToken()
   return config
 }, err => {
   return Promise.reject(err)
@@ -14,9 +17,9 @@ request.interceptors.request.use(config => {
 
 request.interceptors.response.use(res => {
   if (res.data.resultCode === 416) {
-    this.$notify({ type: 'danger', message: res.data.message })
-    this.$route.push('/login')
-    return
+    Notify({ type: 'danger', message: res.data.message })
+    router.push('/login')
+    return {}
   }
   return res.data
 }, err => {

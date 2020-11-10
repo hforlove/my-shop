@@ -1,3 +1,5 @@
+// 接口参考网站 https://github.com/newbee-ltd/newbee-mall-vue-app
+
 import request from '../utils/request'
 
 export function login (data) {
@@ -28,6 +30,29 @@ export function getCateGory (params) {
   return request({
     method: 'get',
     url: '/categories',
+    params
+  })
+}
+
+export function getGoodsList (params) {
+  return request({
+    method: 'get',
+    url: '/search',
+    params
+  })
+}
+
+export function getGoodsDetail (id) {
+  return request({
+    method: 'get',
+    url: '/goods/detail/' + id
+  })
+}
+
+export function getCartList (params) {
+  return request({
+    method: 'get',
+    url: '/shop-cart',
     params
   })
 }

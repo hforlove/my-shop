@@ -1,16 +1,17 @@
 <template>
   <div class="home">
-    <van-nav-bar fixed>
-      <template #left>
-        <van-icon @click="redirect('/category')" name="wap-nav" size="18" color="#fff" />
+    <header-bar>
+      <template v-slot:left>
+        <van-icon @click="$router.push('/category')" name="wap-nav" size="18" color="#fff" />
       </template>
-      <template #title>
-        <van-search v-model="keyword" shape="round" placeholder="搜索商品" />
+      <template v-slot:middle>
+        <van-search v-model="keyword" shape="round" placeholder="搜索商品" @click="$router.push('/goods')" />
       </template>
-      <template #right>
-        <van-icon @click="redirect('/user')" name="manager" size="18" color="#fff" />
+      <template v-slot:right>
+        <van-icon @click="$router.push('/user')" name="manager" size="18" color="#fff" />
       </template>
-    </van-nav-bar>
+    </header-bar>
+
     <tab-bar :index="0"></tab-bar>
 
     <div class="header_space"></div>
@@ -30,13 +31,14 @@
 import { getHomeData } from 'api/index'
 
 import TabBar from 'comp/TabBar'
+import HeaderBar from 'comp/HeaderBar'
+import Swipe from 'comp/Swipe'
 import midNav from './midNav'
 import goodsBlock from './goodsBlock'
-import swipe from 'comp/Swipe'
 
 export default {
   name: 'Home',
-  components: { swipe, TabBar, midNav, goodsBlock },
+  components: { Swipe, TabBar, HeaderBar, midNav, goodsBlock },
   data () {
     return {
       active: 0,
@@ -59,9 +61,6 @@ export default {
           this.homeData = res.data
         }
       })
-    },
-    redirect (path) {
-      this.$router.push(path)
     }
   }
 }
@@ -69,6 +68,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.header_bar{
+  background: #1baeae;
+}
 .home{
  .van-nav-bar{
     background: #1baeae;

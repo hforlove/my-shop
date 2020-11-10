@@ -1,8 +1,8 @@
 <template>
   <div class="login">
-    <nav-bar>
-      <template v-slot:title>登陆</template>
-    </nav-bar>
+    <header-bar>
+      <template v-slot:middle>登陆</template>
+    </header-bar>
     <div class="login_main">
       <van-form @submit="onSubmit" validate-trigger="onSubmit">
         <van-field
@@ -40,11 +40,11 @@ import md5 from 'js-md5'
 import { login, register } from 'api/index'
 import { setStorage } from 'utils/index'
 
-import NavBar from 'comp/NavBar'
+import HeaderBar from 'comp/HeaderBar'
 
 export default {
   name: 'login',
-  components: { NavBar },
+  components: { HeaderBar },
   data () {
     return {
       isLogin: true,

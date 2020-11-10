@@ -10,3 +10,11 @@ export function getStorage (key, value) {
 export function getToken () {
   return getStorage('token')
 }
+
+export function getImg (src) {
+  if (!src) return
+  if (src.indexOf('localhost') >= 0) {
+    return src.replace('http://localhost:28089', process.env.VUE_APP_API)
+  }
+  return src.indexOf('http') >= 0 ? src : process.env.VUE_APP_API + src
+}

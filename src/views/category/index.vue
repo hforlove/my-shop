@@ -1,10 +1,11 @@
 <template>
   <div>
-    <nav-bar>
-      <template v-slot:title>
-        <van-search v-model="keyword" shape="round" placeholder="搜索商品" />
+    <tab-bar :index="1"></tab-bar>
+    <header-bar hide-right>
+      <template v-slot:middle>
+        <van-search v-model="keyword" shape="round" placeholder="搜索商品" @click="$router.push('/goods')" />
       </template>
-    </nav-bar>
+    </header-bar>
     <div class="category_list">
       <div class="list_left">
         <scroll-list :active="listActive">
@@ -27,14 +28,15 @@
 
 <script>
 import ScrollList from 'comp/ScrollList'
-import NavBar from 'comp/NavBar'
+import HeaderBar from 'comp/HeaderBar'
+import TabBar from 'comp/TabBar'
 import cateList from './cateList'
 import cateItem from './cateItem'
 
 import { getCateGory } from 'api/index'
 
 export default {
-  components: { ScrollList, NavBar, cateList, cateItem },
+  components: { ScrollList, HeaderBar, TabBar, cateList, cateItem },
   data () {
     return {
       keyword: '',
@@ -65,10 +67,14 @@ export default {
 </script>
 
 <style lang="less" scope>
+.van-search{
+  width: 100%;
+}
 .category_list{
   display: flex;
   height: 100vh;
   padding-top: 46rem/@dpi;
+  padding-bottom: 50rem/@dpi;
   .list_left{
     width: 110rem/@dpi;
     height: 100%;

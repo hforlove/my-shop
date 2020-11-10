@@ -2,7 +2,7 @@
   <div class="cate_item">
     <h4>{{title}}</h4>
     <ul>
-      <li v-for="item in list" :key="item.categoryId">
+      <li v-for="item in list" :key="item.categoryId" @click="$router.push({name:'goods',query:{categoryId:item.categoryId}})">
         <div><van-icon name="photo" size="60" color="#8c8e90" /></div>
         <span>{{item.categoryName}}</span>
       </li>
