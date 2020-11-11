@@ -7,8 +7,18 @@ export function getStorage (key, value) {
   return localStorage.getItem(key)
 }
 
+export function removeStorage (key) {
+  localStorage.removeItem(key)
+}
+
 export function getToken () {
   return getStorage('token')
+}
+export function setToken (token) {
+  setStorage('token', token)
+}
+export function removeToken () {
+  removeStorage('token')
 }
 
 export function getImg (src) {

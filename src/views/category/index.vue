@@ -52,10 +52,8 @@ export default {
   methods: {
     getCateGory () {
       getCateGory().then(res => {
-        if (res.resultCode === 200) {
-          this.category = res.data
-          this.listActive = !this.listActive
-        }
+        this.category = res.data
+        this.listActive = !this.listActive
       })
     },
     changeCategory (data) {

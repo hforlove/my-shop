@@ -18,7 +18,7 @@
       </div>
     </div>
     <template #right>
-      <van-button square text="删除" type="danger" class="delete-button" />
+      <van-button square text="删除" type="danger" class="delete-button" @click="deleteCart" />
     </template>
   </van-swipe-cell>
 </template>
@@ -42,7 +42,10 @@ export default {
     }
   },
   methods: {
-    getImg
+    getImg,
+    deleteCart () {
+      this.$emit('deleteCart')
+    }
   }
 }
 </script>

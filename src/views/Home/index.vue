@@ -57,9 +57,7 @@ export default {
   methods: {
     getHomeData () {
       getHomeData().then(res => {
-        if (res.resultCode === 200) {
-          this.homeData = res.data
-        }
+        this.homeData = res.data
       })
     }
   }

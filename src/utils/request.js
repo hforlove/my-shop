@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Notify } from 'vant'
 import router from '../router'
-import { getToken } from './index'
+import { getToken, removeToken } from './index'
 
 const request = axios.create({
   baseURL: process.env.VUE_APP_API + '/api/v1',
@@ -18,10 +18,16 @@ request.interceptors.request.use(config => {
 request.interceptors.response.use(res => {
   if (res.data.resultCode === 416) {
     Notify({ type: 'danger', message: res.data.message })
+    removeToken()
     router.push('/login')
-    return {}
+    return Promise.reject(res)
   }
-  return res.data
+  if (res.data.resultCode === 200) {
+    return res.data
+  } else {
+    Notify({ type: 'danger', message: res.data.message })
+    return Promise.reject(res)
+  }
 }, err => {
   return Promise.reject(err)
 })

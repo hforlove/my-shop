@@ -8,7 +8,8 @@ module.exports = {
         api: '@/api',
         utils: '@/utils',
         comp: '@/components',
-        asset: '@/assets'
+        asset: '@/assets',
+        mixin: '@/mixins'
       }
     }
   },

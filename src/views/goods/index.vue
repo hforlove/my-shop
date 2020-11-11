@@ -75,12 +75,10 @@ export default {
     },
     getGoodsList () {
       getGoodsList(this.params).then(res => {
-        if (res.resultCode === 200) {
-          this.loading = false
-          this.totalPage = res.data.totalPage
-          if (this.totalPage < 2) this.finished = true
-          this.goods.push(...res.data.list)
-        }
+        this.loading = false
+        this.totalPage = res.data.totalPage
+        if (this.totalPage < 2) this.finished = true
+        this.goods.push(...res.data.list)
       })
     }
   }

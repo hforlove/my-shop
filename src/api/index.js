@@ -49,10 +49,32 @@ export function getGoodsDetail (id) {
   })
 }
 
-export function getCartList (params) {
+export function getCartList () {
   return request({
     method: 'get',
+    url: '/shop-cart'
+  })
+}
+
+export function deleteCart (id) {
+  return request({
+    method: 'delete',
+    url: '/shop-cart/' + id
+  })
+}
+
+export function addCart (data) {
+  return request({
+    method: 'post',
     url: '/shop-cart',
-    params
+    data
+  })
+}
+
+export function editCart (data) {
+  return request({
+    method: 'put',
+    url: '/shop-cart',
+    data
   })
 }

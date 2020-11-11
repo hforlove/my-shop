@@ -37,8 +37,8 @@
 
 import md5 from 'js-md5'
 
-import { login, register } from 'api/index'
-import { setStorage } from 'utils/index'
+import { login, register } from 'api'
+import { setToken, getToken } from 'utils'
 
 import HeaderBar from 'comp/HeaderBar'
 
@@ -53,6 +53,9 @@ export default {
         password: ''
       }
     }
+  },
+  created () {
+    if (getToken()) this.$router.push('/home')
   },
   methods: {
     resetForm () {
@@ -72,20 +75,15 @@ export default {
         passwordMd5: md5(this.userForm.password)
       }
       login(params).then(res => {
-        if (res.resultCode === 200) {
-          setStorage('token', res.data)
-          this.$router.push('/home')
-        }
+        setToken(res.data)
+        this.$store.dispatch('initCart')
+        this.$router.push('/home')
       })
     },
     register () {
       register(this.userForm).then(res => {
-        if (res.resultCode === 200) {
-          this.isLogin = true
-          this.resetForm()
-        } else {
-          this.$notify({ type: 'danger', message: res.message })
-        }
+        this.isLogin = true
+        this.resetForm()
       })
     }
   }

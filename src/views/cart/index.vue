@@ -5,7 +5,7 @@
     </header-bar>
 
     <div class="cart_list">
-      <cart-item v-for="item in carts" :key="item.cartItemId" :goods.sync="item" />
+      <cart-item @deleteCart="deleteCart(item)" v-for="item in cartList" :key="item.cartItemId" :goods.sync="item" />
     </div>
 
   <van-submit-bar :price="total" button-text="提交订单" @submit="onSubmit">
@@ -20,7 +20,7 @@
 import HeaderBar from 'comp/HeaderBar'
 import cartItem from './cartItem'
 
-import { getCartList } from 'api/index'
+import { getCartList, deleteCart } from 'api/index'
 
 export default {
   components: { HeaderBar, cartItem },
@@ -29,10 +29,7 @@ export default {
       checked: true,
       loading: false,
       finished: false,
-      carts: [],
-      params: {
-        pageNumber: 1
-      }
+      cartList: []
     }
   },
   created () {
@@ -40,9 +37,9 @@ export default {
   },
   computed: {
     total () {
-      const checks = this.carts.filter(item => item.checked)
+      const checks = this.cartList.filter(item => item.checked)
       if (checks.length > 0) {
-        return this.carts.filter(item => item.checked).reduce((prev, cur) => {
+        return this.cartList.filter(item => item.checked).reduce((prev, cur) => {
           return prev + cur.goodsCount * cur.sellingPrice * 100
         }, 0)
       }
@@ -54,24 +51,31 @@ export default {
       this.checked = false
     },
     selectAll (val) {
-      this.carts.map(item => {
+      this.cartList.map(item => {
         item.checked = this.checked
       })
     },
     getCartList () {
-      getCartList(this.params).then(res => {
-        if (res.resultCode === 200) {
-          res.data.map(item => {
-            item.checked = true
-          })
-          this.carts.push(...res.data)
-        }
+      getCartList().then(res => {
+        res.data.map(item => {
+          item.checked = true
+        })
+        this.cartList.push(...res.data)
       })
+    },
+    deleteCart (cart) {
+      const index = this.cartList.findIndex(item => item === cart)
+      if (index >= 0) {
+        deleteCart(cart.cartItemId).then(res => {
+          this.cartList.splice(index, 1)
+          this.$store.dispatch('initCart')
+        })
+      }
     }
   },
   watch: {
     total () {
-      this.checked = !this.carts.filter(item => !item.checked).length > 0
+      this.checked = !this.cartList.filter(item => !item.checked).length > 0
     }
   }
 }
