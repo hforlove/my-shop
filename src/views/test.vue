@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h2>test</h2>
-    <div id="monaco" class="test"></div>
+    test
   </div>
 </template>
 
@@ -20,7 +19,5 @@ export default {
 </script>
 
 <style lang="less" scope>
-.test{
-  height: 400px;
-}
+
 </style>

@@ -18,6 +18,21 @@ export function register (data) {
   })
 }
 
+export function getUserInfo () {
+  return request({
+    method: 'get',
+    url: '/user/info'
+  })
+}
+
+export function updateUserInfo (data) {
+  return request({
+    method: 'put',
+    url: '/user/info',
+    data
+  })
+}
+
 export function getHomeData (params) {
   return request({
     method: 'get',

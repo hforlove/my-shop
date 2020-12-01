@@ -38,7 +38,7 @@
 import md5 from 'js-md5'
 
 import { login, register } from 'api'
-import { setToken, getToken } from 'utils'
+import { setToken, getToken, setStorage } from 'utils'
 
 import HeaderBar from 'comp/HeaderBar'
 
@@ -74,6 +74,7 @@ export default {
         loginName: this.userForm.loginName,
         passwordMd5: md5(this.userForm.password)
       }
+      setStorage('password', this.userForm.password)
       login(params).then(res => {
         setToken(res.data)
         this.$store.dispatch('initCart')
@@ -82,6 +83,7 @@ export default {
     },
     register () {
       register(this.userForm).then(res => {
+        this.$toast.success('注册成功')
         this.isLogin = true
         this.resetForm()
       })

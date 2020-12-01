@@ -34,11 +34,6 @@ const routes = [
     component: () => import('view/cart')
   },
   {
-    path: '/user',
-    name: 'user',
-    component: () => import('view/user')
-  },
-  {
     path: '/goods',
     name: 'goods',
     component: () => import('view/goods')
@@ -47,6 +42,16 @@ const routes = [
     path: '/goodsDetail/:id',
     name: 'goodsDetail',
     component: () => import('view/goodsDetail')
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: () => import('view/user')
+  },
+  {
+    path: '/userForm',
+    name: 'userForm',
+    component: () => import('view/user/userForm')
   },
   {
     path: '/test',
