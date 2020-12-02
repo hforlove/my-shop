@@ -6,7 +6,7 @@
       </slot>
     </div>
     <div class="bar_mid">
-      <slot name="middle"></slot>
+      <slot></slot>
     </div>
     <div v-if="!hideRight" class="bar_right">
       <van-icon v-if="home" name="wap-home-o" @click="$router.push('/home')" />

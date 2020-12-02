@@ -1,20 +1,16 @@
 <template>
-  <div class="home">
+  <div class="page_wrap home">
     <header-bar>
       <template v-slot:left>
         <van-icon @click="$router.push('/category')" name="wap-nav" size="18" color="#fff" />
       </template>
-      <template v-slot:middle>
-        <van-search v-model="keyword" shape="round" placeholder="搜索商品" @click="$router.push('/goods')" />
-      </template>
+      <van-search v-model="keyword" shape="round" placeholder="搜索商品" @click="$router.push('/goods')" />
       <template v-slot:right>
         <van-icon @click="$router.push('/user')" name="manager" size="18" color="#fff" />
       </template>
     </header-bar>
 
     <tab-bar :index="0"></tab-bar>
-
-    <div class="header_space"></div>
 
     <swipe :list="homeData.carousels" />
     <mid-nav></mid-nav>

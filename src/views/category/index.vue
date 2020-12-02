@@ -1,10 +1,8 @@
 <template>
-  <div>
+  <div class="page_wrap">
     <tab-bar :index="1"></tab-bar>
     <header-bar hide-right>
-      <template v-slot:middle>
         <van-search v-model="keyword" shape="round" placeholder="搜索商品" @click="$router.push('/goods')" />
-      </template>
     </header-bar>
     <div class="category_list">
       <div class="list_left">
@@ -69,7 +67,6 @@ export default {
 .category_list{
   display: flex;
   height: 100vh;
-  padding-top: 46rem/@dpi;
   padding-bottom: 50rem/@dpi;
   .list_left{
     width: 110rem/@dpi;

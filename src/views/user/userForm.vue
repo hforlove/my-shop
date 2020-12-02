@@ -1,8 +1,6 @@
 <template>
-  <div class="user_form">
-    <header-bar home>
-      <template v-slot:middle>账号管理</template>
-    </header-bar>
+  <div class="page_wrap user_form">
+    <header-bar home>账号管理</header-bar>
     <div class="form_cont">
       <van-form ref="userForm" @submit="onSubmit">
         <van-field
@@ -96,7 +94,6 @@ export default {
 
 <style lang="less" scope>
 .form_cont{
-  padding-top: 46rem/@dpi;
   .btn{
     padding: 30px;
     margin:0 auto;

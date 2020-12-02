@@ -1,8 +1,6 @@
 <template>
   <div class="page_wrap order_detail">
-    <header-bar home>
-      <template v-slot:middle>订单详情</template>
-    </header-bar>
+    <header-bar home>订单详情</header-bar>
     <div class="detail_top">
       <p><span>订单状态：</span>{{orderInfo.orderStatusString}}</p>
       <p><span>订单编号：</span>{{orderInfo.orderNo}}</p>

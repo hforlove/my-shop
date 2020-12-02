@@ -1,8 +1,6 @@
 <template>
   <div class="login">
-    <header-bar>
-      <template v-slot:middle>登陆</template>
-    </header-bar>
+    <header-bar>登陆</header-bar>
     <div class="login_main">
       <van-form @submit="onSubmit" validate-trigger="onSubmit">
         <van-field

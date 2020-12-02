@@ -1,8 +1,6 @@
 <template>
-  <div class="cart_page">
-    <header-bar home>
-      <template v-slot:middle>购物车</template>
-    </header-bar>
+  <div class="page_wrap cart_page">
+    <header-bar home>购物车</header-bar>
 
     <div class="cart_list">
       <cart-item @deleteCart="deleteCart(item)" v-for="item in cartList" :key="item.cartItemId" :goods.sync="item" />
@@ -84,7 +82,6 @@ export default {
   padding-right: 16px;
 }
 .cart_list{
-  padding-top: 46rem/@dpi;
   padding-bottom: 50rem/@dpi;
   padding-left: 16px;
 }

@@ -1,8 +1,6 @@
 <template>
   <div class="page_wrap">
-    <header-bar home>
-      <template v-slot:middle>我的订单</template>
-    </header-bar>
+    <header-bar home>我的订单</header-bar>
     <van-tabs v-model="params.status" class="order_tab" @change="tabChange">
       <van-tab title="全部" name=""></van-tab>
       <van-tab title="代付款" name="0"></van-tab>

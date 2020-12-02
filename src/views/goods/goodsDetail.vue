@@ -1,9 +1,6 @@
 <template>
-  <div class="goods_detail">
-
-    <header-bar home>
-      <template v-slot:middle>商品详情</template>
-    </header-bar>
+  <div class="page_wrap goods_detail">
+    <header-bar home>商品详情</header-bar>
     <div class="goods_main">
       <swipe :list="goodsCarouselList" />
 
@@ -70,7 +67,6 @@ export default {
 
 <style lang="less" scope>
 .goods_main{
-  padding-top: 46rem/@dpi;
   padding-bottom: 52rem/@dpi;
 }
 .goods_info{

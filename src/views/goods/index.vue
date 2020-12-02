@@ -1,9 +1,7 @@
 <template>
-  <div class="goods">
+  <div class="page_wrap goods">
     <header-bar>
-      <template v-slot:middle>
-        <van-search v-model="params.keyword" shape="round" placeholder="搜索商品"></van-search>
-      </template>
+      <van-search v-model="params.keyword" shape="round" placeholder="搜索商品"></van-search>
       <template v-slot:right>
         <span @click="onSearch">搜索</span>
       </template>
@@ -92,8 +90,5 @@ export default {
   .van-card__price{
     color: @red;
   }
-}
-.goods_list{
-  padding-top: 46rem/@dpi;
 }
 </style>

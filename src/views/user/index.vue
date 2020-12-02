@@ -1,8 +1,6 @@
 <template>
   <div class="page_wrap user_page">
-    <header-bar>
-      <template v-slot:middle>我的</template>
-    </header-bar>
+    <header-bar>我的</header-bar>
     <tab-bar :index="3"></tab-bar>
     <div class="user_cont">
       <div class="user_info">

@@ -1,8 +1,6 @@
 <template>
   <div class="page_wrap">
-    <header-bar home>
-      <template v-slot:middle>{{title}}</template>
-    </header-bar>
+    <header-bar home>{{title}}</header-bar>
     <van-address-edit
       :area-list="areaList"
       show-set-default

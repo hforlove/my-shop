@@ -1,8 +1,6 @@
 <template>
   <div class="page_wrap">
-    <header-bar home>
-      <template v-slot:middle>地址管理</template>
-    </header-bar>
+    <header-bar home>地址管理</header-bar>
     <van-address-list
       v-model="chosenAddressId"
       :list="list"
