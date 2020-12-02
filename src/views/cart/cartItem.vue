@@ -8,7 +8,7 @@
         <van-card
           :title="goods.goodsName"
           class="goods-card"
-          :thumb="getImg(goods.goodsCoverImg)"
+          :thumb="$getImg(goods.goodsCoverImg)"
         >
           <template #price>
             <div class="cart_price">￥{{goods.sellingPrice}}</div>
@@ -24,9 +24,6 @@
 </template>
 
 <script>
-
-import { getImg } from 'utils/index'
-
 export default {
   props: {
     goods: {
@@ -42,7 +39,6 @@ export default {
     }
   },
   methods: {
-    getImg,
     deleteCart () {
       this.$emit('deleteCart')
     }
@@ -51,21 +47,6 @@ export default {
 </script>
 
 <style lang="less" scope>
-.van-card{
-  padding-left: 0;
-  padding-right: 0;
-  background: #fff;
-  border: none;
-}
-.van-card__price{
-  display: flex;
-  justify-content: space-between;
-  color: @red;
-}
-.van-swipe-cell__right{
-  display: flex;
-  align-items: center;
-}
 .cart_item{
   display: flex;
   .cl{
@@ -76,6 +57,21 @@ export default {
   }
   .cr{
     flex: 1;
+  }
+  .van-card{
+    padding-left: 0;
+    padding-right: 0;
+    background: #fff;
+    border: none;
+  }
+  .van-card__price{
+    display: flex;
+    justify-content: space-between;
+    color: @red;
+  }
+  .van-swipe-cell__right{
+    display: flex;
+    align-items: center;
   }
 }
 </style>

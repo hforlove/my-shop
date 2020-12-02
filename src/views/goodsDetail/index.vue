@@ -1,7 +1,7 @@
 <template>
   <div class="goods_detail">
 
-    <header-bar>
+    <header-bar home>
       <template v-slot:middle>商品详情</template>
     </header-bar>
     <div class="goods_main">

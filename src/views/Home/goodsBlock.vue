@@ -4,7 +4,7 @@
     <ul>
       <li v-for="item in list" :key="item.goodsId">
         <div @click="$router.push({name:'goodsDetail',params:{id:item.goodsId}})">
-          <img :src="getImg(item.goodsCoverImg)" alt="">
+          <img :src="$getImg(item.goodsCoverImg)" alt="">
           <p>{{item.goodsName}}</p>
           <span>￥{{item.sellingPrice}}</span>
         </div>
@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import { getImg } from 'utils/index'
-
 export default {
   props: {
     title: {
@@ -28,9 +26,6 @@ export default {
         return []
       }
     }
-  },
-  methods: {
-    getImg
   }
 }
 </script>

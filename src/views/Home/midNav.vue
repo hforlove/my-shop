@@ -1,7 +1,7 @@
 <template>
   <ul class="mid_nav">
     <li v-for="item in list" :key="item.id">
-      <img :src="getImg(item)">
+      <img :src="getNavImg(item)">
       <span>{{item.title}}</span>
     </li>
   </ul>
@@ -26,7 +26,7 @@ export default {
     }
   },
   methods: {
-    getImg (item) {
+    getNavImg (item) {
       return require('@/assets/images/nav/' + item.id + '.png')
     }
   }

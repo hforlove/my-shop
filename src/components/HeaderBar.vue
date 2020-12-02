@@ -9,6 +9,7 @@
       <slot name="middle"></slot>
     </div>
     <div v-if="!hideRight" class="bar_right">
+      <van-icon v-if="home" name="wap-home-o" @click="$router.push('/home')" />
       <slot name="right"></slot>
     </div>
   </div>
@@ -17,6 +18,10 @@
 <script>
 export default {
   props: {
+    home: {
+      type: Boolean,
+      default: false
+    },
     hideRight: {
       type: Boolean,
       default: false
@@ -49,6 +54,9 @@ export default {
     align-items: center;
     justify-content: center;
     font-size: 16rem/@dpi;
+    .van-icon-wap-home-o{
+      font-size: 18rem/@dpi;
+    }
   }
   .bar_mid{
     font-size: 16rem/@dpi;

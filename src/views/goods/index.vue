@@ -23,7 +23,7 @@
           :price="item.sellingPrice"
           :desc="item.goodsIntro"
           :title="item.goodsName"
-          :thumb="getImg(item.goodsCoverImg)"
+          :thumb="$getImg(item.goodsCoverImg)"
           @click="$router.push({name:'goodsDetail',params:{id:item.goodsId}})"
         />
       </van-list>
@@ -33,8 +33,6 @@
 
 <script>
 import HeaderBar from 'comp/HeaderBar'
-
-import { getImg } from 'utils/index'
 
 export default {
   components: { HeaderBar },
@@ -56,7 +54,6 @@ export default {
     this.getGoodsList()
   },
   methods: {
-    getImg,
     onSearch () {
       this.params.pageNumber = 1
       this.loading = true
@@ -88,15 +85,15 @@ export default {
 .goods{
   background: #fff;
   min-height: 100vh;
+  .van-card{
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+  }
+  .van-card__price{
+    color: @red;
+  }
 }
 .goods_list{
   padding-top: 46rem/@dpi;
-}
-.van-card{
-  border-bottom: 1px solid #ccc;
-  background: #fff;
-}
-.van-card__price{
-  color: @red;
 }
 </style>

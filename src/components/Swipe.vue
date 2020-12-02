@@ -4,15 +4,12 @@
       v-for="(item,index) in list"
       :key="index"
     >
-      <img :src="getImg(item.carouselUrl)" />
+      <img :src="$getImg(item.carouselUrl)" />
     </van-swipe-item>
 </van-swipe>
 </template>
 
 <script>
-
-import { getImg } from 'utils/index'
-
 export default {
   props: {
     list: {
@@ -21,9 +18,6 @@ export default {
         return []
       }
     }
-  },
-  methods: {
-    getImg
   }
 }
 </script>

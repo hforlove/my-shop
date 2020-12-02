@@ -1,6 +1,6 @@
 <template>
   <div class="user_form">
-    <header-bar>
+    <header-bar home>
       <template v-slot:middle>账号管理</template>
     </header-bar>
     <div class="form_cont">

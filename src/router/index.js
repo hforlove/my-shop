@@ -69,9 +69,19 @@ const routes = [
     component: () => import('view/address/addressForm')
   },
   {
+    path: '/order',
+    name: 'order',
+    component: () => import('view/order')
+  },
+  {
     path: '/test',
     name: 'test',
     component: () => import('view/test')
+  },
+  {
+    path: '/orderDetail/:id',
+    name: 'orderDetail',
+    component: () => import('view/order/orderDetail')
   }
 ]
 

@@ -123,3 +123,25 @@ export function getAddressDetail (id) {
     url: '/address/' + id
   })
 }
+
+export function getOrder (params) {
+  return request({
+    method: 'get',
+    url: '/order',
+    params
+  })
+}
+
+export function getOrderDetail (id) {
+  return request({
+    method: 'get',
+    url: '/order/' + id
+  })
+}
+
+export function cancelOrder (id) {
+  return request({
+    method: 'put',
+    url: `/order/${id}/cancel`
+  })
+}

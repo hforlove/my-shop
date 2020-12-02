@@ -1,6 +1,6 @@
 <template>
   <div class="page_wrap">
-    <header-bar>
+    <header-bar home>
       <template v-slot:middle>地址管理</template>
     </header-bar>
     <van-address-list

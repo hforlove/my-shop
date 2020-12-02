@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 
 import * as api from './api'
+import { getImg } from './utils'
 
 import 'normalize.css/normalize.css'
 
@@ -19,6 +20,7 @@ import 'vant/lib/index.css'
 Vue.use(Vant)
 
 Vue.prototype.$api = api
+Vue.prototype.$getImg = getImg
 
 Vue.config.productionTip = false
 

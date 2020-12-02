@@ -1,6 +1,6 @@
 <template>
   <div class="cart_page">
-    <header-bar>
+    <header-bar home>
       <template v-slot:middle>购物车</template>
     </header-bar>
 
