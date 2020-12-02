@@ -54,6 +54,21 @@ const routes = [
     component: () => import('view/user/userForm')
   },
   {
+    path: '/about',
+    name: 'about',
+    component: () => import('view/user/about')
+  },
+  {
+    path: '/address',
+    name: 'address',
+    component: () => import('view/address')
+  },
+  {
+    path: '/addressForm',
+    name: 'addressForm',
+    component: () => import('view/address/addressForm')
+  },
+  {
     path: '/test',
     name: 'test',
     component: () => import('view/test')

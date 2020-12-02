@@ -20,8 +20,6 @@
 import HeaderBar from 'comp/HeaderBar'
 import cartItem from './cartItem'
 
-import { getCartList, deleteCart } from 'api/index'
-
 export default {
   components: { HeaderBar, cartItem },
   data () {
@@ -56,7 +54,7 @@ export default {
       })
     },
     getCartList () {
-      getCartList().then(res => {
+      this.$api.getCartList().then(res => {
         res.data.map(item => {
           item.checked = true
         })
@@ -66,7 +64,7 @@ export default {
     deleteCart (cart) {
       const index = this.cartList.findIndex(item => item === cart)
       if (index >= 0) {
-        deleteCart(cart.cartItemId).then(res => {
+        this.$api.deleteCart(cart.cartItemId).then(res => {
           this.cartList.splice(index, 1)
           this.$store.dispatch('initCart')
         })

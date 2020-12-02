@@ -33,8 +33,6 @@ import TabBar from 'comp/TabBar'
 import cateList from './cateList'
 import cateItem from './cateItem'
 
-import { getCateGory } from 'api/index'
-
 export default {
   components: { ScrollList, HeaderBar, TabBar, cateList, cateItem },
   data () {
@@ -51,7 +49,7 @@ export default {
   },
   methods: {
     getCateGory () {
-      getCateGory().then(res => {
+      this.$api.getCateGory().then(res => {
         this.category = res.data
         this.listActive = !this.listActive
       })

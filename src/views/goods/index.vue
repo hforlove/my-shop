@@ -35,7 +35,6 @@
 import HeaderBar from 'comp/HeaderBar'
 
 import { getImg } from 'utils/index'
-import { getGoodsList } from 'api/index'
 
 export default {
   components: { HeaderBar },
@@ -74,7 +73,7 @@ export default {
       this.getGoodsList()
     },
     getGoodsList () {
-      getGoodsList(this.params).then(res => {
+      this.$api.getGoodsList(this.params).then(res => {
         this.loading = false
         this.totalPage = res.data.totalPage
         if (this.totalPage < 2) this.finished = true

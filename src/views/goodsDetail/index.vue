@@ -27,8 +27,6 @@
 
 <script>
 
-import { getGoodsDetail } from 'api'
-
 import Swipe from 'comp/Swipe'
 import HeaderBar from 'comp/HeaderBar'
 
@@ -52,7 +50,7 @@ export default {
   },
   methods: {
     getGoodsDetail () {
-      getGoodsDetail(this.goodsId).then(res => {
+      this.$api.getGoodsDetail(this.goodsId).then(res => {
         this.goodsCarouselList = res.data.goodsCarouselList.map(item => {
           return { carouselUrl: item }
         })

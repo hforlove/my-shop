@@ -93,3 +93,33 @@ export function editCart (data) {
     data
   })
 }
+
+export function getAddress () {
+  return request({
+    method: 'get',
+    url: '/address'
+  })
+}
+
+export function addAddress (data) {
+  return request({
+    method: 'post',
+    url: '/address',
+    data
+  })
+}
+
+export function updateAddress (data) {
+  return request({
+    method: 'put',
+    url: '/address',
+    data
+  })
+}
+
+export function getAddressDetail (id) {
+  return request({
+    method: 'get',
+    url: '/address/' + id
+  })
+}

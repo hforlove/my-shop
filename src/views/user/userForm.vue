@@ -46,7 +46,6 @@ import md5 from 'js-md5'
 
 import HeaderBar from 'comp/HeaderBar'
 
-import { getUserInfo, updateUserInfo } from 'api'
 import { removeToken, getStorage, setStorage } from 'utils'
 
 export default {
@@ -63,7 +62,7 @@ export default {
   },
   methods: {
     getUserInfo () {
-      getUserInfo().then(res => {
+      this.$api.getUserInfo().then(res => {
         this.password = getStorage('password')
         this.nickName = res.data.nickName
         this.introduceSign = res.data.introduceSign
@@ -75,7 +74,7 @@ export default {
         nickName: this.nickName,
         passwordMd5: md5(this.password)
       }
-      updateUserInfo(params).then(res => {
+      this.$api.updateUserInfo(params).then(res => {
         setStorage('password', this.password)
         this.$router.push('/user')
       })

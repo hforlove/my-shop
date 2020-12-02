@@ -28,8 +28,6 @@
 
 <script>
 
-import { getHomeData } from 'api/index'
-
 import TabBar from 'comp/TabBar'
 import HeaderBar from 'comp/HeaderBar'
 import Swipe from 'comp/Swipe'
@@ -56,7 +54,7 @@ export default {
   },
   methods: {
     getHomeData () {
-      getHomeData().then(res => {
+      this.$api.getHomeData().then(res => {
         this.homeData = res.data
       })
     }

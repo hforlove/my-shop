@@ -1,5 +1,5 @@
 <template>
-  <div class="user_page">
+  <div class="page_wrap user_page">
     <header-bar>
       <template v-slot:middle>我的</template>
     </header-bar>
@@ -16,10 +16,10 @@
         </div>
       </div>
       <div class="user_other">
-        <van-cell is-link title="我的订单" />
+        <van-cell is-link title="我的订单" to="order" />
         <van-cell is-link title="账号管理" to="userForm" />
-        <van-cell is-link title="地址管理" />
-        <van-cell is-link title="关于我们" />
+        <van-cell is-link title="地址管理" to="address" />
+        <van-cell is-link title="关于我们" to="about" />
       </div>
     </div>
   </div>
@@ -29,8 +29,6 @@
 
 import TabBar from 'comp/TabBar'
 import HeaderBar from 'comp/HeaderBar'
-
-import { getUserInfo } from 'api'
 
 export default {
   components: { TabBar, HeaderBar },
@@ -44,7 +42,7 @@ export default {
   },
   methods: {
     getUserInfo () {
-      getUserInfo().then(res => {
+      this.$api.getUserInfo().then(res => {
         this.userInfo = res.data
       })
     }
@@ -56,7 +54,7 @@ export default {
 <style lang="less" scope>
 .user_cont{
   padding:0 15px;
-  padding-top: 56rem/@dpi;
+  padding-top: 10rem/@dpi;
 }
 .user_info{
   display: flex;
