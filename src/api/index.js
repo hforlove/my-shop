@@ -124,6 +124,13 @@ export function addAddress (data) {
   })
 }
 
+export function deleteAddress (id) {
+  return request({
+    method: 'delete',
+    url: '/address/' + id
+  })
+}
+
 export function updateAddress (data) {
   return request({
     method: 'put',

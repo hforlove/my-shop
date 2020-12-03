@@ -1,6 +1,9 @@
 <template>
   <div class="page_wrap cart_page">
     <header-bar home>购物车</header-bar>
+    <tab-bar :index="2"></tab-bar>
+
+    <van-empty v-if="cartList.length<1" description="暂无商品" />
 
     <div class="cart_list">
       <cart-item @deleteCart="deleteCart(item)" v-for="item in cartList" :key="item.cartItemId" :goods.sync="item" />
@@ -16,12 +19,13 @@
 <script>
 
 import HeaderBar from 'comp/HeaderBar'
+import TabBar from 'comp/TabBar'
 import CartItem from './CartItem'
 
 import { setStorage } from 'utils'
 
 export default {
-  components: { HeaderBar, CartItem },
+  components: { HeaderBar, TabBar, CartItem },
   data () {
     return {
       checked: true,
@@ -86,11 +90,14 @@ export default {
   padding-right: 16px;
 }
 .cart_list{
-  padding-bottom: 50rem/@dpi;
+  padding-bottom: 106rem/@dpi;
   padding-left: 16px;
 }
 .cart_page{
   background: #fff;
   min-height: 100vh;
+  .van-submit-bar{
+    bottom:56rem/@dpi
+  }
 }
 </style>

@@ -5,9 +5,11 @@
       :area-list="areaList"
       show-set-default
       show-search-result
+      :show-delete="!!addressId"
       :address-info="address"
       :area-columns-placeholder="['请选择', '请选择', '请选择']"
       @save="onSave"
+      @delete="onDelete"
     />
   </div>
 </template>
@@ -82,6 +84,11 @@ export default {
           this.$router.go('-1')
         })
       }
+    },
+    onDelete (item) {
+      this.$api.deleteAddress(this.addressId).then(res => {
+        this.$router.go('-1')
+      })
     }
   }
 }

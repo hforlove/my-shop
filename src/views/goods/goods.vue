@@ -49,7 +49,7 @@ export default {
   },
   created () {
     this.params.goodsCategoryId = this.$route.query.categoryId
-    this.getGoodsList()
+    if (this.params.goodsCategoryId || this.params.keyword) this.getGoodsList()
   },
   methods: {
     onSearch () {
@@ -73,6 +73,8 @@ export default {
         this.totalPage = res.data.totalPage
         if (this.totalPage < 2) this.finished = true
         this.goods.push(...res.data.list)
+      }).catch(_ => {
+        this.loading = false
       })
     }
   }

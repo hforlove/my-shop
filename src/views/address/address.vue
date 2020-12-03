@@ -1,6 +1,8 @@
 <template>
   <div class="page_wrap">
     <header-bar home>地址管理</header-bar>
+
+    <van-empty v-if="list.length<1" description="暂无地址" />
     <van-address-list
       v-model="chosenAddressId"
       :list="list"
