@@ -7,6 +7,7 @@
       default-tag-text="默认"
       @add="onAdd"
       @edit="onEdit"
+      @select="onSelect"
     />
   </div>
 </template>
@@ -20,10 +21,12 @@ export default {
   data () {
     return {
       list: [],
+      type: '',
       chosenAddressId: ''
     }
   },
   created () {
+    this.type = this.$route.query.type
     this.getAddress()
   },
   methods: {
@@ -45,6 +48,9 @@ export default {
     },
     onEdit ({ id }) {
       this.$router.push({ path: '/addressForm', query: { id } })
+    },
+    onSelect (item) {
+      if (this.type) this.$router.push({ name: 'orderCreate', query: { address: item.id } })
     }
   }
 }

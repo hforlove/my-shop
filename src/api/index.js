@@ -71,6 +71,14 @@ export function getCartList () {
   })
 }
 
+export function getCartByIds (params) {
+  return request({
+    method: 'get',
+    url: '/shop-cart/settle',
+    params
+  })
+}
+
 export function deleteCart (id) {
   return request({
     method: 'delete',
@@ -98,6 +106,13 @@ export function getAddress () {
   return request({
     method: 'get',
     url: '/address'
+  })
+}
+
+export function getAddressByDefault () {
+  return request({
+    method: 'get',
+    url: '/address/default'
   })
 }
 
@@ -143,5 +158,21 @@ export function cancelOrder (id) {
   return request({
     method: 'put',
     url: `/order/${id}/cancel`
+  })
+}
+
+export function createOrder (data) {
+  return request({
+    method: 'post',
+    url: '/saveOrder',
+    data
+  })
+}
+
+export function payOrder (params) {
+  return request({
+    method: 'get',
+    url: '/paySuccess',
+    params
   })
 }

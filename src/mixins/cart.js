@@ -3,7 +3,7 @@ import { addCart, editCart } from 'api'
 
 export default {
   methods: {
-    submitCart (params) {
+    submitCart (params, type) {
       const cartList = this.$store.state.cartList
       const cart = cartList.filter(g => g.goodsId === parseInt(params.goodsId))
 
@@ -14,13 +14,21 @@ export default {
         }
         editCart(editParams).then(res => {
           if (res.resultCode === 200) {
-            this.$toast.success('已添加到购物车')
+            if (type === 1) {
+              this.$router.push('/cart')
+            } else {
+              this.$toast.success('已添加到购物车')
+            }
           }
         })
       } else {
         addCart(params).then(res => {
           if (res.resultCode === 200) {
-            this.$toast.success('已添加到购物车')
+            if (type === 1) {
+              this.$router.push('/cart')
+            } else {
+              this.$toast.success('已添加到购物车')
+            }
             this.$store.dispatch('initCart')
           }
         })

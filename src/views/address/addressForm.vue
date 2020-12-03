@@ -75,11 +75,11 @@ export default {
       if (this.addressId) {
         params.addressId = this.addressId
         this.$api.updateAddress(params).then(res => {
-          this.$router.push('/address')
+          this.$router.go('-1')
         })
       } else {
         this.$api.addAddress(params).then(res => {
-          this.$router.push('/address')
+          this.$router.go('-1')
         })
       }
     }

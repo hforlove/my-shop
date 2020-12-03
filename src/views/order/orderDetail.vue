@@ -4,7 +4,7 @@
     <div class="detail_top">
       <p><span>订单状态：</span>{{orderInfo.orderStatusString}}</p>
       <p><span>订单编号：</span>{{orderInfo.orderNo}}</p>
-      <p><span>下单时间：</span>{{orderInfo.payTime}}</p>
+      <p><span>下单时间：</span>{{orderInfo.createTime}}</p>
       <van-button v-if="orderInfo.orderStatus>=0" block type="default" @click="showConfirm(orderInfo.orderNo)">取消订单</van-button>
     </div>
     <div class="detail_top">

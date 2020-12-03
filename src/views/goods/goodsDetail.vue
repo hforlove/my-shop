@@ -15,9 +15,9 @@
 
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" />
-      <van-goods-action-icon icon="cart-o" text="购物车" :badge="$store.getters.cartCount" to="/cart" />
+      <van-goods-action-icon icon="cart-o" text="购物车" :badge="$store.getters.cartCount||''" to="/cart" />
       <van-goods-action-button type="warning" text="加入购物车" @click="addCart" />
-      <van-goods-action-button type="danger" text="立即购买" />
+      <van-goods-action-button type="danger" text="立即购买" @click="addCart(1)" />
     </van-goods-action>
   </div>
 </template>
@@ -54,12 +54,12 @@ export default {
         this.detail = res.data
       })
     },
-    addCart () {
+    addCart (type) {
       const params = {
         goodsCount: 1,
         goodsId: this.goodsId
       }
-      this.submitCart(params)
+      this.submitCart(params, type)
     }
   }
 }

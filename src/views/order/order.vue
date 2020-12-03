@@ -32,7 +32,7 @@
 <script>
 
 import HeaderBar from 'comp/HeaderBar'
-import OrderItem from './orderItem'
+import OrderItem from './OrderItem'
 
 export default {
   components: { HeaderBar, OrderItem },

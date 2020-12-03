@@ -21,22 +21,22 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import('view/home')
+    component: () => import('view/home/home')
   },
   {
     path: '/category',
     name: 'category',
-    component: () => import('view/category')
+    component: () => import('view/category/category')
   },
   {
     path: '/cart',
     name: 'cart',
-    component: () => import('view/cart')
+    component: () => import('view/cart/cart')
   },
   {
     path: '/goods',
     name: 'goods',
-    component: () => import('view/goods')
+    component: () => import('view/goods/goods')
   },
   {
     path: '/goodsDetail/:id',
@@ -46,7 +46,7 @@ const routes = [
   {
     path: '/user',
     name: 'user',
-    component: () => import('view/user')
+    component: () => import('view/user/user')
   },
   {
     path: '/userForm',
@@ -61,7 +61,7 @@ const routes = [
   {
     path: '/address',
     name: 'address',
-    component: () => import('view/address')
+    component: () => import('view/address/address')
   },
   {
     path: '/addressForm',
@@ -71,17 +71,22 @@ const routes = [
   {
     path: '/order',
     name: 'order',
-    component: () => import('view/order')
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: () => import('view/test')
+    component: () => import('view/order/order')
   },
   {
     path: '/orderDetail/:id',
     name: 'orderDetail',
     component: () => import('view/order/orderDetail')
+  },
+  {
+    path: '/orderCreate',
+    name: 'orderCreate',
+    component: () => import('view/order/orderCreate')
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('view/test')
   }
 ]
 

@@ -6,7 +6,7 @@
       <cart-item @deleteCart="deleteCart(item)" v-for="item in cartList" :key="item.cartItemId" :goods.sync="item" />
     </div>
 
-  <van-submit-bar :price="total" button-text="提交订单" @submit="onSubmit">
+  <van-submit-bar :price="total" button-text="结算" @submit="onSubmit">
     <van-checkbox v-model="checked" @click="selectAll">全选</van-checkbox>
   </van-submit-bar>
 
@@ -16,10 +16,12 @@
 <script>
 
 import HeaderBar from 'comp/HeaderBar'
-import cartItem from './cartItem'
+import CartItem from './CartItem'
+
+import { setStorage } from 'utils'
 
 export default {
-  components: { HeaderBar, cartItem },
+  components: { HeaderBar, CartItem },
   data () {
     return {
       checked: true,
@@ -44,7 +46,9 @@ export default {
   },
   methods: {
     onSubmit () {
-      this.checked = false
+      const ids = this.cartList.filter(item => item.checked).map(item => item.cartItemId)
+      setStorage('cartIds', ids.join(','))
+      this.$router.push('/orderCreate')
     },
     selectAll (val) {
       this.cartList.map(item => {

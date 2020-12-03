@@ -7,12 +7,12 @@
     <div class="category_list">
       <div class="list_left">
         <scroll-list :active="listActive">
-          <cate-list :list="category" @changeCategory="changeCategory"></cate-list>
+          <category-list :list="category" @changeCategory="changeCategory" />
         </scroll-list>
       </div>
       <div class="list_right">
         <scroll-list :active="cateActive">
-          <cate-item
+          <category-item
             v-for="item in cateItems"
             :key="item.categoryId"
             :title="item.categoryName"
@@ -28,11 +28,11 @@
 import ScrollList from 'comp/ScrollList'
 import HeaderBar from 'comp/HeaderBar'
 import TabBar from 'comp/TabBar'
-import cateList from './cateList'
-import cateItem from './cateItem'
+import CategoryList from './CategoryList'
+import CategoryItem from './CategoryItem'
 
 export default {
-  components: { ScrollList, HeaderBar, TabBar, cateList, cateItem },
+  components: { ScrollList, HeaderBar, TabBar, CategoryList, CategoryItem },
   data () {
     return {
       keyword: '',

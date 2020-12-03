@@ -10,13 +10,15 @@
       </template>
     </header-bar>
 
-    <tab-bar :index="0"></tab-bar>
+    <tab-bar :index="0"/>
 
     <swipe :list="homeData.carousels" />
-    <mid-nav></mid-nav>
-    <goods-block :list="homeData.newGoodses" title="新品"></goods-block>
-    <goods-block :list="homeData.hotGoodses" title="热门"></goods-block>
-    <goods-block :list="homeData.recommendGoodses" title="推荐"></goods-block>
+
+    <home-nav />
+
+    <home-goods :list="homeData.newGoodses" title="新品" />
+    <home-goods :list="homeData.hotGoodses" title="热门" />
+    <home-goods :list="homeData.recommendGoodses" title="推荐" />
 
     <div class="footer_space"></div>
   </div>
@@ -27,12 +29,12 @@
 import TabBar from 'comp/TabBar'
 import HeaderBar from 'comp/HeaderBar'
 import Swipe from 'comp/Swipe'
-import midNav from './midNav'
-import goodsBlock from './goodsBlock'
+import HomeNav from './HomeNav'
+import HomeGoods from './HomeGoods'
 
 export default {
   name: 'Home',
-  components: { Swipe, TabBar, HeaderBar, midNav, goodsBlock },
+  components: { Swipe, TabBar, HeaderBar, HomeNav, HomeGoods },
   data () {
     return {
       active: 0,
