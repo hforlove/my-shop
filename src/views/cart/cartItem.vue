@@ -6,8 +6,8 @@
       </div>
       <div class="cr">
         <van-card
-          :title="goods.goodsName"
           class="goods-card"
+          :title="goods.goodsName"
           :thumb="$getImg(goods.goodsCoverImg)"
         >
           <template #price>

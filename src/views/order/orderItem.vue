@@ -10,9 +10,9 @@
         :key="item.goodsId"
         :num="item.goodsCount"
         :price="item.sellingPrice"
-        desc="全场包邮"
         :title="item.goodsName"
         :thumb="$getImg(item.goodsCoverImg)"
+        desc="全场包邮"
       />
     </div>
   </div>
