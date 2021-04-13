@@ -82,11 +82,6 @@ const routes = [
     path: '/orderCreate',
     name: 'orderCreate',
     component: () => import('view/order/orderCreate')
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: () => import('view/test')
   }
 ]
 
